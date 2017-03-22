@@ -1,0 +1,36 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<script type="text/javascript">
+//js被原生调用
+function jscallbynative(){
+document.getElementById("content").innerHTML +=   
+         "<br\>Android原生调用了js的打印方法（无参）";
+}
+
+//js被原生调用
+function jscallbynativewithparam(arg){
+document.getElementById("content").innerHTML +=   
+         ("<br\>"+arg);
+}
+
+function gethtmlinput(){
+var str="";
+str=document.getElementById("html_input").value;
+//document.getElementById("content").innerHTML +=   "<br\>"+str;
+return str;
+}
+
+</script>
+</head>
+<body >
+webview:<br/>
+<Input style="font-size: 20px"   type="button" onClick="window.MyTest.close()" value="关闭当前页面"/><br/>
+<Input style="font-size: 20px"   type="button" onClick="window.InterfaceTest.javaFunction()" value="html中调用Android原生方法（无参）"/><br/>
+<Input style="font-size: 20px"   type="button"  onClick='window.MyTest.javaFunction("html输入框信息:"+gethtmlinput())' value="html中调用Android原生方法 并传递参数"/><br/>
+<input style="font-size: 20px"   type="text" name="html_input" id="html_input"  />
+
+<br/>
+<div id="content" >JS调用Android原生方法：</div>
+</body>
+</html> 
